@@ -12,7 +12,7 @@ const SongContext = createContext()
 // Es decir, maneja de donde se obtiene y como se pasa la infomación
 function SongProvider (props) {
   const [list, setList] = useState([])
-  const [selectSong, setSelectSong] = useState({})
+  const [selectedSong, setSelectedSong] = useState({})
   const [loading, setLoading] = useState(true)
 
   // simulamos llamada a la API
@@ -25,12 +25,12 @@ function SongProvider (props) {
 
   const value = {
     list,
-    selectSong,
-    setSelectSong,
+    selectedSong,
+    setSelectedSong,
     loading
   }
   return (
-    <SongContext.Provider value={{ value }} {...props} />
+    <SongContext.Provider value={value} {...props} />
   )
 }
 
@@ -40,6 +40,8 @@ const useSongContext = () => {
   const context = useContext(SongContext)
   return context
 }
+
+// #4 Exportat las funciones del Provider
 export {
   SongProvider,
   useSongContext
