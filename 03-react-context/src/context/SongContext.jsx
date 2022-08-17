@@ -14,6 +14,7 @@ function SongProvider (props) {
   const [list, setList] = useState([])
   const [selectedSong, setSelectedSong] = useState({})
   const [loading, setLoading] = useState(true)
+  const [search, setSearch] = useState('')
 
   // simulamos llamada a la API
   useEffect(() => {
@@ -27,7 +28,9 @@ function SongProvider (props) {
     list,
     selectedSong,
     setSelectedSong,
-    loading
+    loading,
+    search,
+    setSearch
   }
   return (
     <SongContext.Provider value={value} {...props} />
